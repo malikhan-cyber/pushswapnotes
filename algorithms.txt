@@ -1,0 +1,86 @@
+slection sort(Stack_A):
+    ZOLANG Stack_A niet leeg is:
+        1. VIND de kleinste waarde in Stack_A.
+        2. BEREKEN de afstand van deze waarde tot de bovenkant.
+        3. ALS afstand <= (grootte_A / 2):
+               ROTEER A (ra) tot de kleinste bovenaan staat.
+           ANDERS:
+               REVERSE-ROTEER A (rra) tot de kleinste bovenaan staat.
+        4. PUSH naar Stack_B (pb).
+    
+    ZOLANG Stack_B niet leeg is:
+        PUSH terug naar Stack_A (pa).
+
+
+
+
+
+FUNCTIE chunksort(Stack_A):
+    1. INDEXEER alle getallen (0 tot N-1) op basis van hun waarde.
+    2. BEPAAL CHUNK_SIZE (bijv. wortel van N, of N/5).
+    3. VARIABELE i = 0.
+    
+    ZOLANG Stack_A niet leeg is:
+        ALS (Index van bovenste node <= i):
+            PUSH naar B (pb).
+            ROTEER B (rb) om de kleinste onderop te zetten (optioneel).
+            i = i + 1.
+        ALSWER (Index van bovenste node <= i + CHUNK_SIZE):
+            PUSH naar B (pb).
+            i = i + 1.
+        ANDERS:
+            ROTEER A (ra) om verder te zoeken.
+
+    4. PUSH alles uit B terug naar A, maar zorg dat je steeds 
+       het grootste beschikbare getal pakt (gebruik ra/rra in B).
+
+
+
+FUNCTIE radix sort (Stack_A):
+    1. INDEXEER alle getallen (0 tot N-1).
+    2. BEPAAL MAX_BITS (hoeveel bits heb je nodig voor N-1, bijv. 7 bits voor 100 getallen).
+    
+    FOR bit_positie van 0 tot MAX_BITS:
+        GROOTTE = aantal elementen in A.
+        HERHAAL GROOTTE keer:
+            Node = bovenste van A.
+            ALS (de bit op bit_positie van Node.index == 0):
+                PUSH naar B (pb).
+            ANDERS:
+                ROTEER A (ra).
+        
+        ZOLANG Stack_B niet leeg is:
+            PUSH terug naar A (pa).
+
+
+
+FUNCTIE TurkSort(Stack_A, Stack_B):
+    // STAP 1: Voorbereiding
+    ALS grootte_A > 3:
+        PUSH naar B (pb) TWEE KEER (om een basis in B te hebben).
+
+    // STAP 2: A leegmaken (tot er 3 overblijven)
+    ZOLANG grootte_A > 3:
+        VOOR elke node in Stack_A:
+            1. VIND de 'doelpositie' in Stack_B 
+               (de grootste waarde in B die kleiner is dan de waarde in A).
+            2. BEREKEN de kosten: hoeveel rotaties zijn nodig om 
+               deze node bovenaan A te krijgen EN de doelpositie bovenaan B?
+               (Tip: rr en rrr tellen als 1 zet voor beide stacks!)
+        
+        3. KIES de node in A met de ALLERLAAGSTE totale kosten.
+        4. VOER de rotaties uit (ra, rb, rr, etc.) om beide op de juiste plek te krijgen.
+        5. PUSH naar B (pb).
+
+    // STAP 3: De laatste 3 in A
+    Sorteer de overgebleven 3 getallen in Stack_A met de 'Simple Sort' (max 2-3 zetten).
+
+    // STAP 4: Alles terug naar A
+    ZOLANG Stack_B niet leeg is:
+        1. VIND de 'doelpositie' in Stack_A 
+           (de kleinste waarde in A die groter is dan de waarde in B).
+        2. ROTEER Stack_A tot deze positie bovenaan staat.
+        3. PUSH naar A (pa).
+
+    // STAP 5: Finaliseren
+    ROTEER Stack_A tot het kleinste getal bovenaan staat.
