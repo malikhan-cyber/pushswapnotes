@@ -6,43 +6,57 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 16:33:45 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/17 10:06:04 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/17 13:56:35 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* simple algorithms 
+#include "push_swap.h"
+
+/* simple algorithms
 bubble sort & selection sort*/
 
-//selection sort 
+// selection sort
 
-t_list 	*selection_sort(t_list stack_a, t_list stack_b)
+t_list	*selection_sort(t_list *stack_a, t_list *stack_b)
 {
-int 	len;
+	int	len;
+	int	pos_min;
 
-len = ft_lstsize(stack_a);
-while(len != 0)
-{
-	pos_min = find_min();
-	if ((len /  2 ) <= pos_min)
-		while(pos_min == head-> next)
-			ra(stack_a, position);
-	if ((len /  2 ) > pos_min)
-		while(pos_min == head-> next)
-			rra(stack_a, position);
-	if pos_min == head->next;
-		pa(stack_a, stack_b);
-	len--;
-}
-len = ft_lstsize(stack_b)
-while(len != 0)
-{
-	pb(stack_b, stack_a);
-	len--;
-}
-return (stack_a);
+	while (ft_lstsize(stack_a) != 0)
+	{
+		len = ft_lstsize(stack_a);
+		pos_min = find_min_position(stack_a);
+		if ((len / 2) <= pos_min)
+		{
+			while (pos_min != 0)
+			{
+				ra(stack_a);
+				pos_min--;
+			}
+		}
+		else
+		{
+			while (pos_min != 0)
+			{
+				rra(stack_a);
+				pos_min++;
+				if (pos_min == len)
+					pos_min = 0;
+			}
+		}
+		if (pos_min == 0)
+			pb(stack_a, stack_b);
+	}
+	len = ft_lstsize(stack_b);
+	while (len != 0)
+	{
+		pa(stack_b, stack_a);
+		len--;
+	}
+	return (stack_a);
 }
 
-t_list 	*bubble_sort(t_list stack_a, t_list stack_b)
+t_list	*bubble_sort(t_list stack_a, t_list stack_b)
 {
 	if ((lst->content) > (lst->next->content)
 	{
