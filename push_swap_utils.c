@@ -6,7 +6,7 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 10:08:18 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/17 12:26:34 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/17 12:31:53 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ int	find_min_position(t_list *stack_a)
 		stack_a = stack_a->next;
 		pos++;
 	}
-	return (NULL);
+	return (-1);
 }
