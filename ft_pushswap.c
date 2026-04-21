@@ -6,16 +6,11 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 16:33:45 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/17 13:56:35 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/18 13:59:51 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* simple algorithms
-bubble sort & selection sort*/
-
-// selection sort
 
 t_list	*selection_sort(t_list *stack_a, t_list *stack_b)
 {
@@ -56,11 +51,40 @@ t_list	*selection_sort(t_list *stack_a, t_list *stack_b)
 	return (stack_a);
 }
 
-t_list	*bubble_sort(t_list stack_a, t_list stack_b)
+t_list	*bubble_sort(t_list *stack_a, t_list *stack_b)
 {
-	if ((lst->content) > (lst->next->content)
+	int	position;
+
+	if ((stack_a->value) > (stack_a->next->value))
 	{
 		pa(stack_a, stack_b);
 		ra(stack_a, position);
 	}
+}
+t_list	*selection_sort(t_list *stack_a, t_list *stack_b)
+{
+	int	temp;
+	int	end;
+
+	end = ft_lstsize(stack_a);
+	while (stack_a)
+	{
+		stack_a = stack_a->next;
+		if (stack_a->next->value < stack_a->prev->value)
+			stack_a = stack_a->next;
+	}
+}
+
+t_list	*turk_sort(t_list *stack_a, t_list *stack_b)
+{
+	if (is_stack_sorted(stack_a) == 1)
+		return (stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+	if (stack_b->value < stack_b->next->value)
+		ra(stack_b);
+	if (stack_a->value > stack_b->value)
+		pa(stack_a, stack_b);
+	// else
+	// 	while (s)
 }
