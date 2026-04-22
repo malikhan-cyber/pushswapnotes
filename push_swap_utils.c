@@ -6,7 +6,7 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 10:08:18 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/21 14:09:57 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/22 12:54:16 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,8 +151,7 @@ int *ft_quicksort(int *list, int low, int high)
 }
 int *sorted_array(int *list, int len)
 {
-    quicksort(list, 0, len - 1);
-    return list;
+
 }
 int is_stack_sorted(t_list *stack)
 {

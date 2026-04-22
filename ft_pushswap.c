@@ -6,7 +6,7 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 16:33:45 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/18 13:59:51 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/21 15:16:50 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_list	*bubble_sort(t_list *stack_a, t_list *stack_b)
 		ra(stack_a, position);
 	}
 }
-t_list	*selection_sort(t_list *stack_a, t_list *stack_b)
+t_list	*insertion_sort(t_list *stack_a, t_list *stack_b)
 {
 	int	temp;
 	int	end;
