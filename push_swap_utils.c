@@ -6,7 +6,7 @@
 /*   By: alkhan <alkhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 10:08:18 by alkhan            #+#    #+#             */
-/*   Updated: 2026/04/22 12:54:16 by alkhan           ###   ########.fr       */
+/*   Updated: 2026/04/22 16:25:48 by alkhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,52 +98,7 @@ int partition(int *list, int low, int high)
 	
 	return(high);
 }
-int find_ideal_pivot(t_list *stack)
-{
-	int list_size;
-	int last;
-	int first;
-	int middle;
-	int count;
-	int result;
-	t_list *head;
-	
-	head = stack;
-	count = 0;
-	list_size = ft_listsize(stack);
-	first = stack->value;
-	while(count != list_size)
-		{
-			if(count == list_size-1)
-				last = stack->value;
-			stack = stack->next;
-			count++;
-		}
-	count = 0;
-	stack = head;
-	while(count != (list_size / 2))
-		{
-			if(count == (list_size / 2) - 1)
-				middle = stack->value;
-			count++;
-			stack = stack->next;
-		}
-	result = ft_median_pivot(first, middle, last);
-	return(result);
-}
 
-int	ft_median_pivot(int first, int middle, int last)
-{
-	int	result;
-	
-	if (middle > first && middle < last || middle > last && middle < first )
-		result = middle;
-	else if (first > middle && first < last || first > last && first < middle )
-		result = first;
-	else 
-		result = last;
-	return(result);
-}
 
 int *ft_quicksort(int *list, int low, int high)
 {

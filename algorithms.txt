@@ -84,3 +84,40 @@ FUNCTIE TurkSort(Stack_A, Stack_B):
 
     // STAP 5: Finaliseren
     ROTEER Stack_A tot het kleinste getal bovenaan staat.
+
+
+FUNCTIE insertion_sort
+// STAP 1:
+    pak eerste getal van Stack_A   
+        push naar Stack_B
+    kijk naar nieuwe eerste getal in Stack_A en zorg dat hij op juiste plek in lijst komt 
+
+    int find_insert_index(t_stack *b, int value)
+{
+    int i;
+    t_node *cur;
+
+    i = 0;
+    cur = b->top;
+
+    while (cur->next != NULL)
+    {
+        if (cur->value > value && cur->next->value < value)
+            return i + 1;
+        cur = cur->next;
+        i = i + 1;
+    }
+    return 0;
+}
+int ra_cost;
+int rra_cost;
+
+ra_cost = index;
+rra_cost = size_b - index;
+
+if (ra_cost <= rra_cost)
+    rotate_b(ra_cost);
+else
+    reverse_rotate_b(rra_cost);
+
+pb(a, b);
